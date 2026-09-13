@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#171b1a" />
+  <meta name="description" content="三分熟字幕 Medium Rare Subtitle：李程浩从个人听力困境出发，独立设计、开发并持续运营的语言学习产品。" />
+  <title>三分熟字幕 Medium Rare Subtitle｜李程浩的产品故事</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23131a27'/%3E%3Cpath d='M15 23h34M15 32h34M15 41h34' stroke='%23d8bb72' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="sanfen.css" />
+  <script src="sanfen.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#story">跳到项目故事</a>
+  <header class="case-header">
+    <a class="back-link" href="index.html#sanfen"><span aria-hidden="true">←</span> 返回画中场景</a>
+    <a class="case-wordmark" href="#top">Medium Rare <span>Subtitle</span></a>
+    <a class="header-author" href="index.html">李程浩的作品集</a>
+    <div class="reading-line" aria-hidden="true"><span id="readingProgress"></span></div>
+  </header>
+  <main>
+    <section class="hero" id="top" aria-labelledby="caseTitle">
+      <div class="hero-topline"><span>作品 02 / 三分熟字幕</span><span>2024 — 至今</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">MEDIUM RARE SUBTITLE</p>
+          <h1 id="caseTitle">先听一句，<br />再看答案。</h1>
+          <p class="hero-lead">字幕默认模糊。听不清时，移过去就能看清。<br class="desktop-break" />一款让耳朵先工作的语言学习浏览器扩展。</p>
+          <dl class="hero-roles"><div><dt>我的角色</dt><dd>独立开发者</dd></div><div><dt>负责范围</dt><dd>产品 · 交互 · 开发 · 运营</dd></div></dl>
+          <a class="read-story" href="#story">从一个真实问题开始 <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="hero-film media-block">
+          <div class="film-frame"><video id="heroVideo" width="1440" height="614" poster="assets/sanfen/hover-poster.jpg" muted playsinline loop preload="metadata" controls aria-label="三分熟实际使用录屏：字幕模糊，鼠标悬停后恢复清晰" data-managed-video><source src="assets/sanfen/hover.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video></div>
+          <figcaption><span>01 / 悬停解蔽 · 实际使用录屏</span><button class="play-toggle" type="button" data-video="heroVideo" hidden>播放演示 ▷</button></figcaption>
+          <p class="hero-film-note">先听 → 卡住时悬停验证 → 继续观看</p>
+        </figure>
+      </div>
+      <div class="hero-bottom"><p>从个人听力困境，<br />到一群人的观看习惯。</p><dl class="hero-metrics"><div><dt>周活跃用户</dt><dd>900<span>+</span></dd></div><div><dt>累计安装</dt><dd>3,500<span>+</span></dd></div><div><dt>商店评分</dt><dd>4.8<span>/5</span></dd></div></dl></div>
+      <p class="data-date">数据截至 2026 年 9 月 · 作者提供</p>
+    </section>
+    <div class="story-layout" id="story">
+      <aside class="story-rail" aria-label="项目故事目录">
+        <p class="rail-label">三分熟 / 产品故事</p>
+        <nav id="chapterNav"><a href="#problem"><span>01</span> 问题发现</a><a href="#choice"><span>02</span> 形态选择</a><a href="#interaction"><span>03</span> 关键交互</a><a href="#delivery"><span>04</span> 真实交付</a><a href="#measurement"><span>05</span> 数据判断</a><a href="#growth"><span>06</span> 增长与反馈</a><a href="#reflection"><span>07</span> 结果与反思</a></nav>
+        <a class="rail-return" href="index.html#sanfen">← 回到画中</a>
+      </aside>
+      <article class="story-body">
+        <section class="chapter" id="problem" aria-labelledby="problemTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">01 / 一个真实的问题</p><h2 id="problemTitle">我看懂了，<br />却不确定自己听懂了。</h2></div>
+          <div class="prose reveal"><p>备考雅思时，我经常通过外语视频练习听力。开着字幕，内容很好理解，但我会不自觉地跟着文字走；关掉字幕，遇到没听清的地方，又很难及时确认。</p><p>我想保留完整观看一段内容的节奏，同时给耳朵一次先尝试的机会。和同样在学英语的朋友交流后，我发现这种困扰并不只发生在我身上。</p></div>
+          <div class="tension-grid reveal"><div class="tension"><span class="small-label">字幕开着</span><p>理解很顺，<br />注意力却跟着文字走。</p><span class="tension-detail">视觉上的理解，可能掩盖没听清的部分。</span></div><div class="tension"><span class="small-label">字幕关掉</span><p>耳朵开始工作，<br />卡住时却难以确认。</p><span class="tension-detail">来回切换字幕，又容易打断观看节奏。</span></div></div>
+          <blockquote class="question reveal">能不能让字幕一直可用，<br />却只在我主动需要时给出答案？</blockquote>
+        </section>
+        <section class="chapter" id="choice" aria-labelledby="choiceTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">02 / 找到介入的位置</p><h2 id="choiceTitle">把学习放进<br />已经发生的观看里。</h2></div>
+          <div class="prose reveal"><p>三分熟之前，我尝试过 Lingo Odyssey：一个用 AI 生成内容的语言学习文字游戏。我希望借助故事和互动，让用户愿意接触更多外语内容。</p><p>但它要求用户专门进入一个新场景。内容是否足够有趣、体验能否持续，都成了需要同时解决的问题。</p><p>这个尝试让我重新审视切入点。用户已经会在 YouTube 上看感兴趣的视频，内容和观看动机本来就存在。浏览器扩展让我把帮助放进这段行为，在用户遇到理解障碍时出现。</p></div>
+          <div class="choice-path reveal" aria-label="产品形态的转向"><div><span class="small-label">早期尝试 / Lingo Odyssey</span><h3>进入一个 AI 学习游戏</h3><p>创建内容，也要建立新的使用习惯。</p></div><span class="path-arrow" aria-hidden="true">→</span><div><span class="small-label">最终切入 / Medium Rare</span><h3>继续看本来就想看的视频</h3><p>在原有播放器里，提供按需辅助。</p></div></div>
+        </section>
+        <section class="chapter interaction-chapter" id="interaction" aria-labelledby="interactionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">03 / 一个很短的动作</p><h2 id="interactionTitle">把查看答案的成本，<br />压到一次悬停。</h2></div>
+          <div class="prose reveal"><p>我把最小体验设计成一个很短的过程：字幕默认模糊，让用户先听；听不清时，鼠标移入字幕区，原文与翻译恢复清晰；移开后，继续观看。</p><p>开启悬停暂停后，查看字幕时视频会停住，移开后恢复播放，给验证理解留出时间。我希望尝试理解是有挑战的，而获取帮助足够容易。</p></div>
+          <div class="mode-demo reveal" id="modeDemo" data-mode="rare">
+            <div class="demo-heading"><span>三档熟度</span><span class="demo-kind">字幕交互示意</span></div>
+            <div class="mode-controls" role="group" aria-label="选择字幕熟度"><button type="button" data-mode="rare" aria-pressed="true"><span>三分熟</span><small>先用耳朵</small></button><button type="button" data-mode="medium" aria-pressed="false"><span>五分熟</span><small>原文辅助</small></button><button type="button" data-mode="full" aria-pressed="false"><span>全熟</span><small>双语支持</small></button></div>
+            <div class="sample-stage"><span class="sample-label">示例字幕 / EXAMPLE</span><button class="sample-subtitles" id="sampleSubtitles" type="button" aria-label="临时看清示例字幕" aria-pressed="false"><span class="sample-original" lang="en" aria-hidden="true">Give your ears a moment to work.</span><span class="sample-translation" aria-hidden="true">给耳朵一点时间。</span></button><p class="reveal-instruction" id="revealInstruction">悬停、聚焦或轻触字幕，临时看清</p></div>
+            <p class="mode-description" id="modeDescription" aria-live="polite">原文与翻译默认模糊，想先尝试听懂，卡住时再看。</p>
+          </div>
+          <p class="figure-note reveal">三档模式随时可切换。用户根据内容难度、语言水平和当天状态，自由选择辅助程度。</p>
+        </section>
+        <section class="chapter" id="delivery" aria-labelledby="deliveryTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">04 / 从交互走向交付</p><h2 id="deliveryTitle">让这一次悬停，<br />在真实视频里持续可用。</h2></div>
+          <div class="prose reveal"><p>真实播放器给这个简单交互带来了很多边界：字幕可能由机器自动生成，原文可能有多条轨道，用户也会在不刷新页面的情况下切换视频。</p><p>字幕错位、漏句或加载了上一条视频的语言，都会打断“先听—验证”的过程。我结合用户反馈修正同步与语言切换问题，也处理双语加载失败时的回退，让界面状态和实际可用的字幕保持一致。</p></div>
+          <figure class="product-film media-block reveal"><video id="translationVideo" width="1440" height="614" poster="assets/sanfen/translate-poster.jpg" muted playsinline loop preload="none" controls aria-label="实际产品录屏：点击 economies 查看词义及当前语境中的解释" data-managed-video><source src="assets/sanfen/translate.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video><figcaption><span>02 / 语境翻译，让帮助留在当前这句话里</span><button class="play-toggle" type="button" data-video="translationVideo" hidden>播放演示 ▷</button></figcaption></figure>
+          <div class="delivery-pair reveal"><figure><img src="assets/sanfen/mark-still.jpg" width="1440" height="614" alt="三分熟单词标记界面：tempted 旁的爱心显示标记状态，下方展示语境解释" loading="lazy" /><figcaption>03 / 单词标记 · 在语境里留下需要回看的词</figcaption></figure><div class="delivery-copy"><h3>每一项辅助，<br />都回到观看现场。</h3><p>语境翻译帮助理解眼前的表达；词汇标记让需要回看的词留在语境里。持续交付时，我也反复检查这些辅助是否容易发现、是否会打断观看。</p></div></div>
+          <figure class="product-film media-block reveal"><video id="maskVideo" width="1440" height="614" poster="assets/sanfen/mask-poster.jpg" muted playsinline loop preload="none" controls aria-label="实际产品录屏：调整字幕遮罩，覆盖视频画面中的字幕区域" data-managed-video><source src="assets/sanfen/mask.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video><figcaption><span>04 / 字幕遮罩，适应不同的视频画面</span><button class="play-toggle" type="button" data-video="maskVideo" hidden>播放演示 ▷</button></figcaption></figure>
+          <p class="figure-note">以上画面来自实际使用录屏，部分为历史版本。</p>
+        </section>
+        <section class="chapter" id="measurement" aria-labelledby="measurementTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">05 / 产品的方向感</p><h2 id="measurementTitle">什么行为，<br />值得成为产品的方向？</h2></div>
+          <div class="prose reveal"><p>用户增加以后，我开始用 Mixpanel 观察实际使用行为。即时解蔽、点词和手动标记，覆盖的用户范围并不相同。这让我重新考虑核心路径的优先级，以及应该怎样判断产品是否有价值。</p><p>一次点词可能表示用户得到了帮助，也可能表示他频繁遇到障碍。单纯增加点击次数，并不能说明观看变得更顺畅。</p></div>
+          <div class="metric-principle reveal"><span class="small-label">北极星候选</span><h3>每周辅助沉浸<br />输入时长</h3><p>关注用户在字幕支持下，持续观看了多久。</p><ul><li>视频正在播放，时间在前进</li><li>字幕已加载，辅助可用</li><li>尽量排除暂停、错误与闲置</li></ul><p class="metric-footnote">这是使用价值的观察指标，不能直接等同于听力提升。</p></div>
+          <div class="prose reveal"><p>这个方向把我的功能决策拉回同一个问题：这次改动，能不能帮助用户继续理解和观看真实内容？</p></div>
+        </section>
+        <section class="chapter" id="growth" aria-labelledby="growthTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">06 / 从用户身上找下一步</p><h2 id="growthTitle">让更多人的观看习惯，<br />都能接上这套辅助。</h2></div>
+          <div class="prose reveal"><p>增长停滞时，我也曾怀疑这个产品还能走多远。后来，即使更新减少，用户仍然在自然增加，一些用户还会主动联系我，提出新的使用需求。</p><p>日语、德语等语言支持的反馈，让我看到同一个问题也存在于更多语言学习场景里。我据此推进学习与翻译语言支持、界面和商店介绍的国际化。</p><p>对 B 站的扩展也来自真实需求：用户希望在常用的视频平台里继续使用熟悉的辅助方式。观察他们在哪里遇到障碍、哪些需求被反复提及，成为我决定下一步投入的重要依据。</p></div>
+          <div class="growth-notes reveal"><div><span class="small-label">语言</span><h3>让更多人能用</h3><p>学习与翻译支持、界面和商店介绍，一起适应新的语言需求。</p></div><div><span class="small-label">场景</span><h3>跟着观看习惯走</h3><p>从 YouTube 延伸到 B 站，保留“先尝试理解，再按需求助”的体验。</p></div></div>
+        </section>
+        <section class="chapter reflection" id="reflection" aria-labelledby="reflectionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">07 / 仍在继续</p><h2 id="reflectionTitle">从自己的需求，<br />走到一群人的习惯。</h2></div>
+          <div class="prose reveal"><p>从 2024 年开始，三分熟逐渐成长为一个持续运营的产品。累计安装超过 3,500，周活跃用户超过 900、接近 1,000，商店评分约为 4.8/5。</p><p>持续的自然增长、回访使用，以及用户主动提出的新需求，让我判断：三分熟已经在这个细分听力学习场景里，找到了自己的产品与市场契合点（PMF）。</p><p>这个项目也让我更清楚地理解了产品工作的连续性：从自己的问题中找到线索，把判断做成可用的交互，再在真实使用中接受反馈、调整方向。</p></div>
+          <blockquote class="closing-quote reveal">我最想做好的，<br />是让用户在听不懂的那一刻，<br /><em>仍然愿意继续看下去。</em></blockquote>
+          <div class="closing-actions"><a class="external-link" href="https://sublur.top" target="_blank" rel="noreferrer">体验 Medium Rare <span aria-hidden="true">↗</span></a><a href="index.html">返回画中全景 <span aria-hidden="true">→</span></a></div>
+          <p class="figure-note">产品规模与评分据作者 2026 年 9 月提供的数据；评分保留一位小数。</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="case-footer"><span>李程浩 · 产品作品集</span><a href="#top">回到开头 ↑</a><span>02 / MEDIUM RARE SUBTITLE</span></footer>
+</body>
+</html>

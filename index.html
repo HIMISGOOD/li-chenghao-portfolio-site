@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#100f0d" />
+    <meta
+      name="description"
+      content="李程浩的产品作品集：三分熟字幕、个人健康 Agent、AOMA、物影集与旅行产品研究。"
+    />
+    <title>李程浩｜产品作品集</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23100f0d'/%3E%3Cpath d='M16 25V16h9M39 16h9v9M48 39v9h-9M25 48h-9v-9' fill='none' stroke='%23d5bd83' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="gallery.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <strong>李程浩</strong>
+        <span>PRODUCT PORTFOLIO · 2026</span>
+      </div>
+      <nav class="nav" aria-label="主要导航">
+        <a href="writing.html">写作与研究</a>
+        <button id="aboutButton" type="button">关于</button>
+        <a href="assets/li-chenghao-resume.pdf" target="_blank" rel="noreferrer">简历</a>
+      </nav>
+    </header>
+
+    <main class="desktop-stage" id="desktopStage">
+      <section class="painting" id="painting" aria-label="画中的产品世界">
+        <img
+          src="assets/portfolio-hero.png"
+          alt="一幅古典群像画，五组人物分别在使用字幕工具、健康助手、旅行规划、无线相机测量和实体收藏应用。"
+        />
+
+        <button class="hotspot" data-project="health" data-note="right" aria-label="查看个人健康 Agent 项目" style="left: 1%; top: 6%; width: 28%; height: 42%" type="button">
+          <span class="hotspot-label"><b>01</b></span>
+        </button>
+        <button class="hotspot" data-project="sanfen" data-note="below" aria-label="查看三分熟字幕项目" style="left: 30%; top: 20%; width: 44%; height: 45%" type="button">
+          <span class="hotspot-label"><b>02</b></span>
+        </button>
+        <button class="hotspot" data-project="travel" data-note="left" aria-label="查看旅行与机票项目" style="left: 58%; top: 5%; width: 21%; height: 31%" type="button">
+          <span class="hotspot-label"><b>03</b></span>
+        </button>
+        <button class="hotspot" data-project="aoma" data-note="left" aria-label="查看 AOMA 测量工具项目" style="left: 76%; top: 8%; width: 23%; height: 44%" type="button">
+          <span class="hotspot-label"><b>04</b></span>
+        </button>
+        <button class="hotspot" data-project="collection" data-note="right" aria-label="查看物影集项目" style="left: 0%; top: 44%; width: 38%; height: 55%" type="button">
+          <span class="hotspot-label"><b>05</b></span>
+        </button>
+      </section>
+      <footer class="gallery-footer">
+        <p class="stage-note" id="stageNote">将鼠标移入画中，发现一个项目</p>
+        <nav class="scene-index" id="sceneIndex" aria-label="画中项目"></nav>
+        <span class="gallery-count">五个场景 · 一幅作品集</span>
+      </footer>
+    </main>
+
+    <main class="mobile-gallery">
+      <p class="mobile-intro">从生活里的一个问题，到可使用的产品。轻触画中场景，了解它的故事。</p>
+      <button class="mobile-card" data-project="health" type="button"><span><small>01 · AGENT</small>个人健康 Agent</span></button>
+      <button class="mobile-card" data-project="sanfen" type="button"><span><small>02 · CONSUMER PRODUCT</small>三分熟字幕</span></button>
+      <button class="mobile-card" data-project="travel" type="button"><span><small>03 · RESEARCH & SERVICE</small>旅行与机票</span></button>
+      <button class="mobile-card" data-project="aoma" type="button"><span><small>04 · B2B DELIVERY</small>AOMA 测量工具</span></button>
+      <button class="mobile-card" data-project="collection" type="button"><span><small>05 · IOS PRODUCT</small>物影集</span></button>
+    </main>
+
+    <aside class="project-panel" id="projectPanel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" aria-hidden="true" inert>
+      <div class="project-visual" id="projectVisual" data-folio="01">
+        <p class="visual-folio"><span>画中局部</span><b id="visualIndex"></b></p>
+        <div class="crop-mount" id="cropMount"><div class="project-crop" id="projectCrop" role="img"></div></div>
+        <p class="visual-caption"><span id="visualType"></span><span id="visualSummary"></span></p>
+      </div>
+      <div class="project-copy">
+        <button class="close-button" id="closeButton" type="button"><span aria-hidden="true">←</span> 返回全景 <kbd>Esc</kbd></button>
+        <p class="panel-kicker" id="panelKicker"></p>
+        <h2 id="panelTitle"></h2>
+        <p class="panel-meta" id="panelMeta"></p>
+        <div class="travel-entries" id="travelEntries" role="group" aria-label="旅行场景中的两段经历" hidden>
+          <button type="button" data-travel="research" aria-pressed="false"><small>01 · TEAM RESEARCH</small><span>团队研究 <b aria-hidden="true">→</b></span></button>
+          <button type="button" data-travel="internship" aria-pressed="false"><small>02 · INTERNSHIP</small><span>实习经历 <b aria-hidden="true">→</b></span></button>
+        </div>
+        <dl class="panel-facts">
+          <div><dt>我的角色</dt><dd id="panelRole"></dd></div>
+          <div><dt>项目状态</dt><dd id="panelStatus"></dd></div>
+        </dl>
+        <div class="panel-rule"></div>
+        <p class="panel-description" id="panelDescription" aria-live="polite"></p>
+        <div class="panel-proof">
+          <small>关键结果</small>
+          <strong id="panelProof"></strong>
+        </div>
+        <a class="project-story-link" id="projectStoryLink" href="sanfen.html" hidden>阅读完整项目故事 <span aria-hidden="true">→</span></a>
+        <a class="project-story-link" id="researchArticleLink" href="ai-innovation.html" hidden>阅读研究文章 <span aria-hidden="true">↗</span></a>
+        <nav class="detail-nav" aria-label="切换场景"><button id="prevScene" type="button" aria-label="上一个场景">←</button><span id="detailCount"></span><button id="nextScene" type="button" aria-label="下一个场景">→</button></nav>
+      </div>
+    </aside>
+
+    <script src="vendor/gsap.min.js"></script>
+    <script>
+      const projects = {
+        health: {
+          order: "01 · AGENT",
+          title: "具身操作",
+          hoverTitle: "个人健康 Agent",
+          hoverType: "Agent · iOS",
+          hoverSummary: "把身体状态与当天安排放在一起判断。",
+          meta: "个人健康管理 Agent · 独立设计与开发",
+          role: "产品设计 / Agent 架构 / iOS 开发",
+          status: "真机验收",
+          description: "把 HealthKit 数据、用户感受和当天安排放在一起判断。首页不是指标仪表盘，而是一段能决定回复、调用工具、等待确认或保持沉默的日常对话。",
+          proof: "277 个测试 · 39 个套件 · iPhone 15 Pro 真机验收"
+        },
+        sanfen: {
+          order: "02 · CONSUMER PRODUCT",
+          title: "三分熟字幕",
+          hoverType: "Consumer product",
+          hoverSummary: "让字幕晚一点出现，让耳朵先工作。",
+          meta: "语言学习浏览器扩展 · 独立开发者 · 2024—至今",
+          role: "产品 / 设计 / 开发 / 运营",
+          status: "持续运营",
+          description: "从“开字幕会依赖、关字幕又无法验证”的矛盾出发，把字幕默认模糊，并允许用户 Hover 即时解蔽。产品嵌入原有视频消费习惯，而不是另造一个学习场景。",
+          proof: "周活跃用户 900+ · 累计安装 3,500+ · 商店评分 4.8/5"
+        },
+        travel: {
+          order: "03 · RESEARCH & SERVICE",
+          title: "旅行与机票",
+          hoverType: "Research & service",
+          hoverSummary: "研究 AI 如何影响旅行决策与信任。",
+          meta: "团队研究（2026）· 通航产品实习（2023）",
+          role: "研究协同 / 产品原型 / 业务开拓",
+          status: "两个独立入口",
+          description: "画中的旅行场景连接了两段不同经历：一段是围绕 AI 旅行平台展开的团队研究；另一段是在通航企业进行产品与机票业务实习。请选择上方入口，分别阅读。",
+          proof: "团队研究：5 人、3 版原型 · 实习：机票新业务首周 10 单"
+        },
+        aoma: {
+          order: "04 · B2B DELIVERY",
+          title: "AOMA",
+          hoverType: "B2B delivery",
+          hoverSummary: "从相机接入，到一张带尺寸的结果图。",
+          meta: "Android 无线相机辅助测量工具 · 2025.03—2025.05",
+          role: "需求沟通 / 交互设计 / 开发 / 联调",
+          status: "已完成交付",
+          description: "将客户提出的冻结画面、参照卡尺标定与保存结果的方法，细化为完整操作流程，独立完成 Android 开发、真实相机联调与试用反馈后的版本修改。",
+          proof: "通用 RTSP 接入 · 多目标测量 · APK、演示与完整源码交付"
+        },
+        collection: {
+          order: "05 · IOS PRODUCT",
+          title: "物影集",
+          hoverType: "iOS product",
+          hoverSummary: "为实体收藏建立可回看的数字档案。",
+          meta: "实体收藏数字化工具 · iOS",
+          role: "产品设计 / iOS 开发",
+          status: "TestFlight 已分发",
+          description: "把现实物件变成可归类、可回看的物影卡，并探索一套收藏如何慢慢长出来。产品已通过 TestFlight 分发给 2 人，使用体验和产品闭环仍在打磨。",
+          proof: "TestFlight 分发 2 人 · Vision 主体分离 · iOS 原型"
+        },
+        about: {
+          order: "ABOUT",
+          title: "李程浩",
+          hoverType: "Product manager",
+          hoverSummary: "从真实摩擦出发，把模糊需求做成产品。",
+          meta: "AI 产品 · 独立开发 · 用户研究",
+          role: "产品经理 / 独立开发者",
+          status: "开放合作",
+          description: "我从真实生活里的摩擦出发，把模糊需求做成可使用、可验证、可迭代的产品。既做用户研究和产品判断，也能独立完成原型、开发、数据分析与交付。",
+          proof: "2 款 C 端工具 · 1 项客户定制产品 · Agent 设计开发经验"
+        }
+      };
+
+    </script>
+    <script src="gallery.js"></script>
+  </body>
+</html>

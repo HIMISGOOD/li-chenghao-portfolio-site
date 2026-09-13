@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f5f0" />
+  <meta name="description" content="物影集：李程浩的 iOS 独立产品。从一张物影卡，到一套想继续收下去的东西。" />
+  <title>物影集｜让一套收藏慢慢长出来</title>
+  <link rel="stylesheet" href="sanfen.css" />
+  <link rel="stylesheet" href="collection.css" />
+  <script src="collection.js" defer></script>
+</head>
+<body class="collection-case">
+  <a class="skip-link" href="#story">跳到项目故事</a>
+  <header class="case-header">
+    <a class="back-link" href="index.html#collection"><span aria-hidden="true">←</span> 返回画中场景</a>
+    <a class="case-wordmark" href="#top">物影集 <span>/ OBJECTS &amp; MEMORY</span></a>
+    <a class="header-author" href="index.html">李程浩的作品集</a>
+    <div class="reading-line" aria-hidden="true"><span id="readingProgress"></span></div>
+  </header>
+  <main>
+    <section class="hero collection-hero" id="top" aria-labelledby="caseTitle">
+      <div class="hero-topline"><span>作品 05 / 物影集</span><span>iOS 独立产品 · 2025.07 — 至今</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">一件物 · 一张卡 · 一套收藏</p>
+          <h1 id="caseTitle">把遇见的<br />东西，<br /><em>慢慢收成一套。</em></h1>
+          <p class="hero-lead">我先把现实里的物件变成可保存的「物影卡」；做完拍摄、抠图和归档后，才发现更难的问题是：为什么还想收下一件？</p>
+          <a class="read-story" href="#question">进入项目故事 <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="hero-art">
+          <div class="hero-art-label"><span>PRODUCT / REAL DEVICE · 2026.07</span><span>01 — 02</span></div>
+          <div class="hero-art-stage">
+            <button type="button" class="image-button hero-back" data-image="assets/collection/0177.webp" data-caption="2026 年 7 月真机截图：一张海报被做成物影卡，进入首页卡片堆。" aria-label="放大查看海报物影卡真机截图"><img src="assets/collection/0177.webp" width="1179" height="2556" alt="物影集首页中的 Wild Style 海报物影卡" /></button>
+            <button type="button" class="image-button hero-front" data-image="assets/collection/0166.webp" data-caption="2026 年 7 月真机截图：苹果酒罐成为物影卡，展示标题、日期、地点与主体。" aria-label="放大查看苹果酒物影卡真机截图"><img src="assets/collection/0166.webp" width="1179" height="2556" alt="物影集首页中的苹果酒物影卡" fetchpriority="high" /></button>
+            <span class="art-mark" aria-hidden="true">物<br />影<br />集</span>
+          </div>
+          <figcaption>两张 2026 年 7 月的真机截图在此重新排版；卡片画面来自实际 App。</figcaption>
+        </figure>
+      </div>
+      <dl class="collection-facts"><div><dt>项目形态</dt><dd>独立设计与开发的 iOS App</dd></div><div><dt>已实现</dt><dd>拍摄 / 主体分离 / 卡片 / 展柜</dd></div><div><dt>目前状态</dt><dd>TestFlight 已分发给 2 人</dd></div><div><dt>还未验证</dt><dd>持续收集与复访</dd></div></dl>
+    </section>
+
+    <div class="story-layout" id="story">
+      <aside class="story-rail" aria-label="物影集项目故事目录"><p class="rail-label">物影集 / 产品故事</p><nav id="chapterNav"><a href="#question"><span>01</span> 为什么收</a><a href="#capture"><span>02</span> 从现实到卡片</a><a href="#language"><span>03</span> 统一的视觉语言</a><a href="#collection"><span>04</span> 从一张到一套</a><a href="#motion"><span>05</span> 回到首页</a><a href="#reflection"><span>06</span> 仍在回答的问题</a></nav><a class="rail-return" href="index.html#collection">← 回到画中</a></aside>
+      <article class="story-body">
+        <section class="chapter" id="question" aria-labelledby="questionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">01 / 设计命题</p><h2 id="questionTitle">相册记住了照片，<br />却不一定记住「这一套」。</h2></div>
+          <div class="prose reveal"><p>旅行时的票根、常喝的饮料、街头偶遇的海报，我会顺手拍下来。但在相册里，它们很快和聊天截图、文件照片混在一起。我要保存的并不只是画面，还有物件之间的关系：它属于哪一类，什么时候遇见，下一件又会是什么。</p><p>这是我自己的产品观察与设计假设，还不是用户访谈结论。最初的答案很直接：先让一件物从杂乱的场景里站出来，成为可以命名、归类、回看的收藏单位。</p></div>
+          <div class="thesis reveal"><span>起初的问题</span><p>怎样让一张物件照片，<br />拥有值得被收藏的形态？</p><span class="thesis-arrow" aria-hidden="true">↘</span><span>后来发现的问题</span><p>一张卡做好以后，<br />为什么还会想收下一张？</p></div>
+        </section>
+
+        <section class="chapter" id="capture" aria-labelledby="captureTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">02 / 一条已做出的单次流程</p><h2 id="captureTitle">从举起镜头，<br />到留下一个物影。</h2></div>
+          <div class="prose reveal"><p>App 支持直接拍摄或从相册选图。拍下之后，通过 iOS Vision 分离前景主体，添加白边，再把名称、时间、地点与图片组织成卡片，存入本地收藏。真机截图里，这只咖啡杯从取景画面走到了卡片详情。</p></div>
+          <div class="process-strip reveal" aria-label="产品单次流程"><span>拍摄 / 导入</span><i aria-hidden="true">→</i><span>提取主体</span><i aria-hidden="true">→</i><span>生成物影卡</span><i aria-hidden="true">→</i><span>归入展柜</span></div>
+          <div class="screen-pair reveal">
+            <figure><button class="image-button framed-screen" type="button" data-image="assets/collection/0173.webp" data-caption="2026 年 7 月真机截图：在 App 相机中取景，拍摄 Black Sheep Coffee 杯子。" aria-label="放大查看拍摄取景画面"><img src="assets/collection/0173.webp" width="1179" height="2556" loading="lazy" alt="物影集的相机取景画面，一只咖啡杯位于中央" /></button><figcaption><b>01 · 拍摄</b><span>真实场景里的杯子，背景和主体仍混在一起。</span></figcaption></figure>
+            <figure><button class="image-button framed-screen" type="button" data-image="assets/collection/0174.webp" data-caption="2026 年 7 月真机截图：咖啡杯被分离成带白边的主体，出现在粉色物影卡上。" aria-label="放大查看生成后的咖啡杯物影卡"><img src="assets/collection/0174.webp" width="1179" height="2556" loading="lazy" alt="物影集中的粉色 Black Sheep Coffee 物影卡，咖啡杯以白边主体呈现" /></button><figcaption><b>02 · 成卡</b><span>同一只杯子进入统一卡片版式，带上名称、时间和地点。</span></figcaption></figure>
+          </div>
+          <p class="figure-note">这两张是另一只杯子的前后状态截图。下方的连续录屏，则展示一只金属杯从取景走到卡片预览。</p>
+          <figure class="capture-film reveal">
+            <div class="capture-film-screen"><video id="captureMotion" src="assets/collection/capture-to-card.mp4" poster="assets/collection/capture-to-card-poster.webp" playsinline muted loop preload="metadata" controls aria-label="金属杯从取景、主体分离到未命名物影卡预览的真机录屏"></video></div>
+            <div class="capture-film-copy"><span>REAL DEVICE / 2026.07.26 / 00:07</span><h3>轮廓从背景里浮出来，<br />成为一张未命名的卡。</h3><p>同一段真机录屏依次展示取景、拍摄后的主体提取，以及「未命名物影」卡片预览。这段视频没有展示后续命名或存入展柜，因此这里只用它说明成卡过程。</p><ol><li><span>01</span> 对准金属杯并拍摄</li><li><span>02</span> 前景主体与白边显现</li><li><span>03</span> 进入未命名卡片预览</li></ol><button type="button" id="captureToggle">播放 7 秒片段 ▷</button></div>
+            <figcaption>用户提供的 2026 年 7 月 26 日真机录屏；为网页播放转成 H.264、缩小分辨率并去掉音轨，画面步骤未重剪。</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="language" aria-labelledby="languageTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">03 / 把不同物件变成同一种收藏单位</p><h2 id="languageTitle">物件可以千差万别，<br />卡片需要有共同的语法。</h2></div>
+          <div class="prose reveal"><p>从啤酒杯、苹果酒罐到海报，它们的形状和背景都不同。我没有把每张照片直接塞进固定容器，而是先抽出主体，再用白边、色纸、边框、标题和地点形成一套重复的版式。这样做的目的，是让「这个东西属于我的收藏」一眼可见。</p></div>
+          <div class="specimen-grid reveal">
+            <figure><button class="image-button specimen" type="button" data-image="assets/collection/0167.webp" data-caption="2026 年 7 月真机截图：Guinness 酒杯物影卡。" aria-label="放大查看酒杯物影卡"><img src="assets/collection/0167.webp" width="1179" height="2556" loading="lazy" alt="蓝色的 Guinness 酒杯物影卡" /></button><figcaption>酒杯 <span>玻璃 / 深色主体</span></figcaption></figure>
+            <figure><button class="image-button specimen" type="button" data-image="assets/collection/0166.webp" data-caption="2026 年 7 月真机截图：苹果酒罐物影卡。" aria-label="放大查看苹果酒罐物影卡"><img src="assets/collection/0166.webp" width="1179" height="2556" loading="lazy" alt="杏色的苹果酒罐物影卡" /></button><figcaption>罐装饮料 <span>金属 / 复杂图案</span></figcaption></figure>
+            <figure><button class="image-button specimen" type="button" data-image="assets/collection/0177.webp" data-caption="2026 年 7 月真机截图：Wild Style 海报物影卡。" aria-label="放大查看海报物影卡"><img src="assets/collection/0177.webp" width="1179" height="2556" loading="lazy" alt="薄荷色的 Wild Style 海报物影卡" /></button><figcaption>海报 <span>纸张 / 平面图像</span></figcaption></figure>
+          </div>
+          <div class="engineering-note reveal"><span>实现上的两个细节</span><div><h3>相机定格要对得上取景</h3><p>早期实现出现取景与定格画面错位。后来为定格图使用原生图层与方向处理，减少拍摄瞬间的视觉跳动；这里不声称已做到量化的「像素级一致」。</p></div><div><h3>抠图后仍要留下「何时何地」</h3><p>项目曾遇到处理后的图像不再携带所需元数据，于是把原图、处理图与时间地点分开保存，让卡片有可回看的上下文。</p></div></div>
+        </section>
+
+        <section class="chapter" id="collection" aria-labelledby="collectionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">04 / 产品重心的变化</p><h2 id="collectionTitle">做好一张卡，<br />不等于做出一套收藏。</h2></div>
+          <div class="prose reveal"><p>早期我把精力放在「成卡」的瞬间：抠得是否干净、卡片是否好看、拖入收藏夹是否有手感。继续自用后，我开始怀疑：如果首页只是陈列已经拍过的东西，下一次打开的理由在哪里？</p><p>展柜至少让同类物件并排出现，数量和差异可以被看见。下面两张截图来自同一次演示：收藏格里冰淇淋、巧克力和酒的件数发生了变化。它说明界面能呈现收藏的增长，不能证明真实用户会因此持续回来。</p></div>
+          <div class="growth-pair reveal"><figure><button class="image-button framed-screen" type="button" data-image="assets/collection/0168.webp" data-caption="真机演示截图：展柜中冰淇淋 1 件、巧克力 1 件、酒 2 件。" aria-label="放大查看展柜较早状态"><img src="assets/collection/0168.webp" width="1179" height="2556" loading="lazy" alt="物影集展柜网格，显示冰淇淋、涂鸦、巧克力、酒等分类和物影数量" /></button><figcaption><b>16:18 / 演示状态</b><span>不同种类各自占据一格。</span></figcaption></figure><figure><button class="image-button framed-screen" type="button" data-image="assets/collection/0169.webp" data-caption="真机演示截图：展柜中冰淇淋 3 件、巧克力 3 件、酒 3 件。" aria-label="放大查看展柜较后状态"><img src="assets/collection/0169.webp" width="1179" height="2556" loading="lazy" alt="物影集展柜网格，冰淇淋、巧克力和酒的物影数量均增加到三件" /></button><figcaption><b>16:26 / 演示状态</b><span>同类物件开始形成可见的一组。</span></figcaption></figure></div>
+          <div class="tension-box reveal"><span>当前设计的摩擦</span><p>拍完之后仍要马上决定放进哪一类。<br />「先收下，稍后整理」是我接下来想验证的方向，<strong>不是当前已经完成的功能。</strong></p></div>
+          <figure class="detail-evidence reveal"><div><span>DETAIL / REAL DEVICE · 2026.07</span><h3>再打开其中一件，<br />仍能回到它自己的卡片。</h3><p>展柜负责呈现一组；单件详情保留编辑、分享与删除入口。一个集合不应抹掉每件物品的个体感。</p></div><button class="image-button framed-screen" type="button" data-image="assets/collection/0172.webp" data-caption="2026 年 7 月真机截图：巧克力收藏中的 Tony’s 单件物影卡详情。" aria-label="放大查看巧克力单件详情"><img src="assets/collection/0172.webp" width="1179" height="2556" loading="lazy" alt="物影集巧克力分类中的 Tony’s 巧克力物影卡详情页" /></button></figure>
+        </section>
+
+        <section class="chapter" id="motion" aria-labelledby="motionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">05 / 短短四秒的交互片段</p><h2 id="motionTitle">看完一张卡，<br />回到仍在等你的展柜。</h2></div>
+          <div class="prose reveal"><p>物影集想保留一点触摸实体卡片的感觉：点开、查看、收起、换一件。下面是真机录制的卡片收起并返回首页片段。它不包含拍摄、抠图或归档步骤。</p></div>
+          <figure class="motion-evidence reveal"><div class="motion-screen"><video id="cardMotion" src="assets/collection/card-to-home.mp4" poster="assets/collection/card-to-home-poster.webp" playsinline muted loop preload="metadata" controls aria-label="物影卡收起并回到首页的真机录屏"></video></div><div class="motion-copy"><span>REAL DEVICE / 00:04</span><h3>让交互像「拿起与放回」，<br />而不是换一张网页。</h3><p>这一层动效增加了手感，也增加了状态管理成本。早期出现过快速退出再进入详情失败的问题；页面只展示这段录屏里可见的效果，不把它包装成已经完成的性能验收。</p><button type="button" id="motionToggle">播放片段 ▷</button></div><figcaption>2026 年 7 月真机录屏 · 卡片详情 → 首页。视频无声。</figcaption></figure>
+        </section>
+
+        <section class="chapter reflection" id="reflection" aria-labelledby="reflectionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">06 / 目前走到哪里</p><h2 id="reflectionTitle">单次收藏已经成形，<br />持续收集还需要答案。</h2></div>
+          <div class="prose reveal"><p>现在的 iOS 原型已经有拍摄或相册导入、主体分离、物影卡、展柜、详情与单卡分享。项目也通过 TestFlight 分发给了两人；但我还没有可引用的安装、试用记录或反馈，不能把分发写成产品验证。</p><p>从原名「余温」到「物影集」，改变的不只是名字：主语从一件物的记忆，转向一套收藏如何生长。接下来最值得验证的不是再加一种卡片样式，而是拍摄是否足够轻、稍后分类是否更顺、展柜是否真的让人想收下一件。</p></div>
+          <div class="status-grid reveal"><div><span>已经做出</span><h3>从拍摄到本地回看的原型</h3><p>真机画面展示卡片、展柜和详情；代码中有拍摄、主体处理、本地存储与单卡分享。</p></div><div><span>已经发生</span><h3>TestFlight 分发给 2 人</h3><p>这是分发事实，不推导为两人已安装、持续使用或给出反馈。</p></div><div><span>仍待验证</span><h3>反复收集的理由</h3><p>使用者何时会再打开、分类摩擦是否过高，以及系列展示能否促成下一次拍摄。</p></div></div>
+          <blockquote class="closing-quote reveal">一张卡，是一次遇见。<br /><em>一套收藏，才是一段关系。</em></blockquote>
+          <div class="closing-actions"><a href="index.html#collection">← 回到画中场景</a><a href="health.html">下一个项目：具身操作 →</a></div>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="case-footer"><span>李程浩 · 产品作品集</span><span>物影集 / 2025 — 至今</span></footer>
+  <dialog class="image-dialog" id="imageDialog" aria-label="查看真机截图"><div class="image-dialog-bar"><span>物影集 · 真机截图</span><button type="button" id="closeImage" aria-label="关闭放大图">关闭 ×</button></div><div class="image-dialog-body"><img id="dialogImage" alt="" /></div><p id="dialogCaption"></p></dialog>
+</body>
+</html>

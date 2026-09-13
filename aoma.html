@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#202221" />
+  <meta name="description" content="AOMA：李程浩独立完成的 Android 无线相机辅助测量工具。从需求与交互设计，到真实硬件联调、客户反馈和 APK 与源码交付。" />
+  <title>AOMA｜李程浩的产品故事</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23202221'/%3E%3Cpath d='M14 44L32 16l18 28M22 34h20' fill='none' stroke='%23e5ded0' stroke-width='4'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="sanfen.css" />
+  <link rel="stylesheet" href="aoma.css" />
+  <script src="aoma.js" defer></script>
+</head>
+<body class="aoma-case">
+  <a class="skip-link" href="#story">跳到项目故事</a>
+  <header class="case-header">
+    <a class="back-link" href="index.html#aoma"><span aria-hidden="true">←</span> 返回画中场景</a>
+    <a class="case-wordmark" href="#top">AOMA <span>/ 辅助测量</span></a>
+    <a class="header-author" href="index.html">李程浩的作品集</a>
+    <div class="reading-line" aria-hidden="true"><span id="readingProgress"></span></div>
+  </header>
+  <main>
+    <section class="hero aoma-hero" id="top" aria-labelledby="caseTitle">
+      <div class="hero-topline"><span>作品 04 / AOMA</span><span>2025.03 — 2025.05</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">ANDROID · 无线相机辅助测量工具</p>
+          <h1 id="caseTitle">连接相机，<br />把尺寸<br />留在图上。</h1>
+          <p class="hero-lead">冻结画面，参照已知刻度标定，<br />测量并保存一张带毫米读数的结果图。</p>
+          <a class="read-story" href="#story">从结果回到设计过程 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-result hero-storyboard" aria-label="AOMA 从连接设备到保存测量结果的三个阶段">
+          <div class="plate-label"><span>PRODUCT / WORKFLOW</span><span>01 → 03</span></div>
+          <div class="storyboard-grid">
+            <figure class="storyboard-shot shot-device">
+              <img src="assets/aoma/hardware-poster.jpg" width="464" height="264" alt="桌面上的无线相机模组、手机和供电设备" fetchpriority="high" />
+              <figcaption><b>01</b><span>连接无线相机</span></figcaption>
+            </figure>
+            <figure class="storyboard-shot shot-measure">
+              <img src="assets/aoma/workflow-poster.jpg" width="448" height="226" alt="AOMA 横屏测量界面，画面中显示刻度、端点和微调控件" fetchpriority="high" />
+              <figcaption><b>02</b><span>冻结 · 标定 · 测量</span></figcaption>
+            </figure>
+            <button class="storyboard-shot shot-output image-zoom" type="button" data-image="assets/aoma/result.jpg" aria-label="放大第三步的多目标测量结果图">
+              <img src="assets/aoma/result.jpg" width="2159" height="1080" alt="同一画面上的三组测量线，分别标注 90.70、85.87 和 78.95 毫米" fetchpriority="high" />
+              <span class="shot-caption"><b>03</b><span>保存带读数的结果图</span></span>
+              <span class="zoom-hint">查看原图 ↗</span>
+            </button>
+          </div>
+          <p class="storyboard-note">设备、操作与输出均来自阶段实录。图中数字是测量读数，不是精度指标。</p>
+        </div>
+      </div>
+      <dl class="project-facts">
+        <div><dt>项目形式</dt><dd>客户委托 · Android App</dd></div>
+        <div><dt>我的角色</dt><dd>独立负责产品设计与开发</dd></div>
+        <div><dt>负责范围</dt><dd>需求 / 交互 / 开发 / 联调</dd></div>
+        <div><dt>交付内容</dt><dd>APK / 演示视频 / 完整源码</dd></div>
+      </dl>
+    </section>
+
+    <div class="story-layout" id="story">
+      <aside class="story-rail" aria-label="AOMA 项目故事目录">
+        <p class="rail-label">AOMA / 产品故事</p>
+        <nav id="chapterNav">
+          <a href="#brief"><span>01</span> 工作流</a>
+          <a href="#hardware"><span>02</span> 真机联调</a>
+          <a href="#measurement"><span>03</span> 测量交互</a>
+          <a href="#choice"><span>04</span> 操作边界</a>
+          <a href="#feedback"><span>05</span> 试用反馈</a>
+          <a href="#delivery"><span>06</span> 交付与复盘</a>
+        </nav>
+        <a class="rail-return" href="index.html#aoma">← 回到画中</a>
+      </aside>
+      <article class="story-body">
+        <section class="chapter" id="brief" aria-labelledby="briefTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">01 / 从方法到操作</p><h2 id="briefTitle">把测量方法，<br />变成一条完整的工作流。</h2></div>
+          <div class="prose reveal"><p>2025 年 3 月，澳玛科技负责人希望做一个 Android App：手机连接无线相机，冻结画面后参照卡尺刻度进行标定，再测量图中物体的尺寸，并把结果保存到相册。</p><p>客户已经提出了基本测量方法。我的工作从这里展开：怎样接入相机、什么时候冻结、端点如何调整、标定参数怎样保存，以及测完如何留下可查看的结果。</p></div>
+          <ol class="workflow-strip reveal" aria-label="完整操作流程"><li><span>01</span>连接</li><li><span>02</span>预览</li><li><span>03</span>冻结</li><li><span>04</span>标定</li><li><span>05</span>测量</li><li><span>06</span>保存</li></ol>
+          <div class="context-pair reveal">
+            <figure class="media-block">
+              <video id="hardwareVideo" width="464" height="264" poster="assets/aoma/hardware-poster.jpg" preload="none" muted playsinline controls aria-label="四月阶段演示：为无线相机模组开机" data-case-video><source src="assets/aoma/hardware.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video>
+              <figcaption>无线相机模组开机 · 4 月阶段演示节选</figcaption>
+            </figure>
+            <div class="side-copy"><span class="small-label">从真实设备开始</span><h3>相机负责成像，<br />手机承接操作。</h3><p>我负责需求沟通、交互设计、Android 开发、真实相机联调，以及客户试用后的版本修改。</p></div>
+          </div>
+        </section>
+
+        <section class="chapter" id="hardware" aria-labelledby="hardwareTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">02 / 方案接受真实设备的检验</p><h2 id="hardwareTitle">模拟环境跑通之后，<br />还有一次真机验证。</h2></div>
+          <div class="prose reveal"><p>交付边界很明确：只做 Android，提供安装包，无需上架商店。但具体接入哪种相机，仍在沟通和选型中。</p><p>第一版基于海康威视 SDK 开发。当我拿家用监控摄像头与客户确认时，发现双方对设备形态的理解存在偏差：客户考虑的是类似工业放大镜的一体设备，还涉及镜头与模组的组合。</p><p>考虑到后续接入其他相机的需求，我改为通用 RTSP 视频流方案。客户随后确认设备支持 RTSP 和 UVC，这一阶段先完成 RTSP 接入。硬件尚未到手时，我用 iPhone 模拟 IP Camera，通过录屏确认预览、标定和测量操作。</p></div>
+          <figure class="product-film media-block reveal">
+            <video id="previewVideo" width="960" height="464" poster="assets/aoma/preview-poster.jpg" preload="none" muted playsinline controls aria-label="四月早期横屏预览演示，非最终硬件验证画面" data-case-video><source src="assets/aoma/preview.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video>
+            <figcaption>早期横屏预览 · 约 6 秒 · 用于确认画面布局和操作入口</figcaption>
+          </figure>
+          <div class="prose after-media reveal"><p>4 月拿到真实设备后，模拟环境里可播放的方案却无法正常显示。我更换为 IJKPlayer，重新处理视频显示与上层交互的衔接，并在 4 月 17 日向客户确认真实设备画面已能正常显示。</p></div>
+          <ol class="integration-timeline reveal">
+            <li><time>03 / 上旬</time><div><h3>重新确认设备形态</h3><p>从厂商 SDK 转向通用协议方案。</p></div></li>
+            <li><time>03 / 中下旬</time><div><h3>先验证操作流程</h3><p>模拟相机演示，确认本轮 RTSP 接入范围。</p></div></li>
+            <li><time>04 / 中旬</time><div><h3>真实模组联调</h3><p>处理模拟环境未暴露的播放兼容问题。</p></div></li>
+            <li><time datetime="2025-04-17">04 / 17</time><div><h3>确认真实画面恢复显示</h3><p>更换播放器，继续推进测量操作。</p></div></li>
+          </ol>
+          <p class="takeaway reveal">模拟设备帮助确认流程；真实设备检验连接与播放。两部分都需要明确的验证结果。</p>
+        </section>
+
+        <section class="chapter" id="measurement" aria-labelledby="measurementTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">03 / 核心交互</p><h2 id="measurementTitle">先稳定画面，<br />再调整测量点。</h2></div>
+          <div class="prose reveal"><p>核心操作是在相机图像上建立尺寸参照，再选取目标的两个端点。我把它拆成冻结与标定、定位与微调、多目标与保存三个步骤。</p></div>
+          <figure class="product-film media-block workflow-film reveal" id="workflowDemo">
+            <div class="media-heading"><span>阶段操作演示</span><span>2025.04 · 节选 57 秒</span></div>
+            <video id="workflowVideo" width="448" height="226" poster="assets/aoma/workflow-poster.jpg" preload="none" muted playsinline controls aria-label="四月阶段演示：冻结画面、选取已知刻度、输入标定距离及测量操作" data-case-video><source src="assets/aoma/workflow.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video>
+            <figcaption>冻结画面 → 选择已知距离 → 输入标定值 → 进入测量。原速播放，仅裁去录制黑边。</figcaption>
+          </figure>
+          <div class="step-copy reveal"><span class="step-number">01</span><div><h3>用已知距离，建立比例参照。</h3><p>先冻结画面，在已知刻度上选择两个点，输入它们之间的实际距离。应用据此计算图像距离与实际长度的比例，并保存标定参数。</p></div></div>
+          <div class="precision-pair reveal">
+            <figure class="portrait-film media-block">
+              <video id="dpadVideo" width="608" height="1280" poster="assets/aoma/dpad-poster.jpg" preload="none" muted playsinline controls aria-label="三月模拟相机阶段：使用方向键微调测量端点" data-case-video><source src="assets/aoma/dpad.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video>
+              <figcaption>端点微调 · 3 月早期版本 · 模拟相机阶段</figcaption>
+            </figure>
+            <div class="precision-copy">
+              <div class="step-copy"><span class="step-number">02</span><div><h3>先点击定位，<br />再用方向键微调。</h3><p>点击或拖动可以快速放置端点；选中端点后，方向键提供更细的调整方式。坐标和测量结果随调整更新，用户可以一边观察刻度，一边修正位置。</p></div></div>
+              <div class="step-copy"><span class="step-number">03</span><div><h3>让结果留在画面里。</h3><p>同一冻结画面可以放置多组测量线。完成后，把线段和毫米读数一起保存到相册，便于之后查看或发送。</p></div></div>
+              <p class="figure-note">录屏中的 Camera Connect 是项目早期名称，后更名为 AOMA。各视频来自不同阶段，不代表同一最终版本。</p>
+            </div>
+          </div>
+          <figure class="image-figure reveal"><button class="image-zoom" type="button" data-image="assets/aoma/scale-result.jpg" aria-label="放大真实刻度画面的测量结果"><img src="assets/aoma/scale-result.jpg" width="2376" height="960" alt="紫色刻度画面上的一条黄色测量线，读数为 6.09 毫米" loading="lazy" /><span class="zoom-hint">查看原图 ↗</span></button><figcaption>另一张真实刻度画面的测量结果 · 6.09 mm 是读数，不是误差。</figcaption></figure>
+          <p class="evidence-note reveal">我做过卡尺和标准件的对照验证。现有材料没有完整的误差统计，因此这里展示辅助测量能力与操作流程，不作精度承诺。保存标定参数，也不代表改变设备或成像条件后仍可直接沿用。</p>
+        </section>
+
+        <section class="chapter" id="choice" aria-labelledby="choiceTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">04 / 关键取舍</p><h2 id="choiceTitle">参考刻度图，<br />只保留需要的移动。</h2></div>
+          <div class="prose reveal"><p>客户希望把一张参考刻度图叠加在检测画面上。我先做了一版可以调整位置和缩放的方案，通过录屏确认效果。</p></div>
+          <figure class="product-film media-block reveal">
+            <video id="overlayVideo" width="1280" height="608" poster="assets/aoma/overlay-poster.jpg" preload="none" muted playsinline controls aria-label="参考刻度图初版，仍保留位置和缩放控制" data-case-video><source src="assets/aoma/overlay.mp4" type="video/mp4" />您的浏览器不支持视频播放。</video>
+            <figcaption>参考刻度图初版 · 反馈前的版本，仍保留缩放控制</figcaption>
+          </figure>
+          <blockquote class="client-quote reveal"><p>“就光左右移动就行，<br />千万不要上下和放大。”</p><cite>客户对初版演示的反馈 · 2025.04</cite></blockquote>
+          <div class="decision-row reveal"><div><span class="small-label">初版方案</span><p>位置调整 + 缩放</p></div><span aria-hidden="true">→</span><div><span class="small-label">确认后的操作边界</span><p>只沿水平方向移动</p></div></div>
+          <div class="prose after-media reveal"><p>我据此收窄操作范围，让参考图只沿水平方向调整，并再次发送演示确认。对于观看方式，则根据反馈提供横屏全屏，让观察画面获得更多空间。</p><p>镜头变焦是另一件事：客户明确使用定焦镜头，这一轮便没有加入镜头变焦功能。</p><p>复盘时，我会先确认用户需要保持什么不变、需要调整什么，再决定开放哪些控制。参考图的位置、大小和移动方向，都要和实际使用方法一起确认。</p></div>
+        </section>
+
+        <section class="chapter" id="feedback" aria-labelledby="feedbackTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">05 / 客户试用之后</p><h2 id="feedbackTitle">把空间，<br />还给需要观察的画面。</h2></div>
+          <div class="prose reveal"><p>4 月，我向客户发送了可安装版本。5 月，客户在自己的手机上反馈了清除后无法继续测量、测量数量受限、顶部白条遮挡，以及提示文字和结果框占用空间等问题。</p><p>其中一条反馈直接改变了信息安排：客户会通过说明书介绍操作，希望测量时减少画面上的提示。</p></div>
+          <figure class="image-figure feedback-figure reveal">
+            <button class="image-zoom" type="button" data-image="assets/aoma/feedback.jpg" aria-label="放大五月客户反馈截图：顶部白条和大面积提示框遮挡画面"><img src="assets/aoma/feedback.jpg" width="2376" height="1104" alt="客户手机截图：顶部白条以及测量模式的大段常驻提示占据观察区域" loading="lazy" /><span class="feedback-marker marker-one" aria-hidden="true">1</span><span class="feedback-marker marker-two" aria-hidden="true">2</span><span class="zoom-hint">查看原图 ↗</span></button>
+            <figcaption><span>1 / 顶部白条</span><span>2 / 大面积常驻提示</span><span>5 月客户手机反馈 · 非修复后界面</span></figcaption>
+          </figure>
+          <div class="revision-list reveal"><div><span>01</span><h3>移除常驻解释</h3><p>减少大段测量提示，把操作说明交给说明书。</p></div><div><span>02</span><h3>读数靠近线段</h3><p>移除底部结果面板，将读数放回测量对象附近。</p></div><div><span>03</span><h3>收拢操作入口</h3><p>清除、保存等操作改为悬浮按钮，减少界面占用。</p></div></div>
+          <p class="figure-note">以上为后续版本的调整，依据 5 月 31 日源码与交付记录整理；没有用不同显示状态的截图拼成“修复前后”对比。</p>
+          <aside class="open-issue reveal"><span class="small-label">仍需机型适配</span><h3>白条问题，没有已关闭的证明。</h3><p>当时我在自己的手机上没有复现，交付沟通中记录为需要针对不同机型继续适配。现有记录没有证明它已在客户手机上消失。</p></aside>
+          <div class="prose reveal"><p>这次迭代让我看到，提示信息本身也占用任务空间。测量画面需要同时容纳目标、刻度、端点和结果；哪些解释常驻、哪些操作按需出现，需要结合实际设备反馈来调整。</p></div>
+        </section>
+
+        <section class="chapter reflection" id="delivery" aria-labelledby="deliveryTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">06 / 交付与复盘</p><h2 id="deliveryTitle">把应用和后续维护的基础，<br />一起交付。</h2></div>
+          <div class="prose reveal"><p>项目经历了初始需求沟通、模拟相机验证、真实设备联调和客户试用反馈。5 月 31 日，我向客户交付了修改后的安装包、演示视频和完整源码。</p></div>
+          <dl class="deliverables reveal"><div><dt>APK</dt><dd>安装与使用</dd></div><div><dt>演示视频</dt><dd>说明操作过程</dd></div><div><dt>完整源码</dt><dd>后续修改与接手</dd></div></dl>
+          <div class="prose reveal"><p>这次项目没有正式验收，我也没有继续掌握交付后的日常使用情况。能够确认的成果，是完成了从相机接入到结果保存的工作流，推进了真实硬件联调，并根据客户反馈进行了版本修改。</p></div>
+          <div class="reflection-notes reveal"><p class="small-label">下一次类似项目，我会更早落实</p><ol><li><h3>用实物和具体操作确认需求。</h3><p>在方案开始前，对齐设备形态和实际使用方法。</p></li><li><h3>列出需要覆盖的设备配置。</h3><p>明确手机型号与相机配置，安排对应验证。</p></li><li><h3>提前约定怎样算完成。</h3><p>和客户约定验证项目、记录方法及完成标准。</p></li></ol></div>
+          <blockquote class="closing-quote reveal">从能运行的方案，<br />走向双方都能检查的交付。</blockquote>
+          <div class="closing-actions"><a class="external-link" href="#workflowDemo">回看阶段操作演示 <span aria-hidden="true">↑</span></a><a href="index.html#aoma">返回画中场景 <span aria-hidden="true">→</span></a></div>
+          <p class="figure-note">页面基于项目沟通记录、阶段素材及作者复盘整理。APK 与源码仅作为交付事实展示，不提供公开下载。</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="case-footer"><span>李程浩 · 产品作品集</span><a href="#top">回到开头 ↑</a><span>04 / AOMA</span></footer>
+  <dialog class="image-dialog" id="imageDialog" aria-labelledby="imageDialogTitle">
+    <div class="dialog-toolbar"><p id="imageDialogTitle">原始项目图片</p><button type="button" id="closeImage" autofocus>关闭 <span aria-hidden="true">×</span></button></div>
+    <div class="dialog-image-wrap"><img id="expandedImage" alt="" /></div>
+    <p class="dialog-caption" id="imageDialogCaption"></p>
+  </dialog>
+</body>
+</html>

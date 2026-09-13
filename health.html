@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#352326" />
+  <meta name="description" content="具身操作：李程浩的个人健康 Agent 项目。从《规则的死亡》中的睡眠实验，到基于 HealthKit、具有授权与恢复能力的 iPhone Agent。" />
+  <title>具身操作｜让系统适应人的生活</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23352326'/%3E%3Cpath d='M10 34h12l6-15 9 29 6-14h11' fill='none' stroke='%23ead9bd' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="sanfen.css" />
+  <link rel="stylesheet" href="health.css" />
+  <script src="health.js" defer></script>
+</head>
+<body class="health-case">
+  <a class="skip-link" href="#story">跳到项目故事</a>
+  <header class="case-header">
+    <a class="back-link" href="index.html#health"><span aria-hidden="true">←</span> 返回画中场景</a>
+    <a class="case-wordmark" href="#top">具身操作 <span>/ PERSONAL AGENT</span></a>
+    <a class="header-author" href="index.html">李程浩的作品集</a>
+    <div class="reading-line" aria-hidden="true"><span id="readingProgress"></span></div>
+  </header>
+  <main>
+    <section class="hero health-hero" id="top" aria-labelledby="caseTitle">
+      <div class="hero-topline"><span>作品 01 / 具身操作</span><span>2026 · 个人探索与技术 MVP</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">HUMAN OS → 具身操作</p>
+          <h1 id="caseTitle">让系统，<br />适应人的<span class="hero-emphasis">生活。</span></h1>
+          <p class="hero-lead">从一次失败的睡眠计划出发，<br />探索一个能理解身体、记住生活，<br />并在授权之后采取行动的个人 Agent。</p>
+          <div class="hero-actions"><a class="read-story" href="#origin">从《规则的死亡》读起 <span aria-hidden="true">↓</span></a><a href="#action" class="hero-demo-link">体验一次行动 ↗</a></div>
+        </div>
+        <figure class="hero-product">
+          <div class="product-caption"><span>当前 App / 健康对话</span><span>01 / TODAY</span></div>
+          <button class="screenshot-trigger hero-screenshot" type="button" data-screenshot="assets/health/health-trace-demo.png" aria-label="放大查看当前 App 的健康对话演示截图">
+            <img src="assets/health/health-trace-demo.png" width="1206" height="2622" alt="当前 App 的 Today 页面演示：用户询问今天是否适合训练，公开执行步骤显示读取睡眠、HRV 与静息心率，随后给出维持强度的回答；页面明确标注为合成数据" fetchpriority="high" />
+            <span class="screenshot-enlarge" aria-hidden="true">查看原图 ↗</span>
+          </button>
+          <figcaption>当前 App 截图 · 演示数据。图中数值和建议用于展示界面，不作为真实健康效果证据。</figcaption>
+        </figure>
+      </div>
+      <dl class="health-facts"><div><dt>我的角色</dt><dd>产品 / 架构 / iOS 开发</dd></div><div><dt>开发方式</dt><dd>独立完成 · Codex 协作</dd></div><div><dt>核心能力</dt><dd>HealthKit / 记忆 / 工具行动</dd></div><div><dt>已完成验证</dt><dd>277 项测试 / iPhone 真机</dd></div></dl>
+    </section>
+
+    <div class="story-layout" id="story">
+      <aside class="story-rail" aria-label="具身操作项目故事目录"><p class="rail-label">具身操作 / 产品故事</p><nav id="chapterNav"><a href="#origin"><span>01</span> 规则的死亡</a><a href="#principle"><span>02</span> 原则与情境</a><a href="#evolution"><span>03</span> 三代演进</a><a href="#boundaries"><span>04</span> 自主的边界</a><a href="#action"><span>05</span> 一次真实行动</a><a href="#reflection"><span>06</span> 验证与复盘</a></nav><a class="rail-return" href="index.html#health">← 回到画中</a></aside>
+      <article class="story-body">
+        <section class="chapter" id="origin" aria-labelledby="originTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">01 / 一个亲身经历的问题</p><h2 id="originTitle">有效了三天，<br />然后生活发生了。</h2></div>
+          <div class="prose reveal"><p>我一直在尝试用 AI 修复自己的睡眠。该做什么其实很清楚：调暗灯光，放下手机，关闭通知。于是，我把它们编成了一套按时执行的规则。</p><p>后来，我在《规则的死亡》中写下这段经历：一顿迟来的晚餐、一场重要的对话，或一次午夜的创意爆发，就足以打乱计划。原本用于帮助我的系统，开始成为愧疚的来源。</p></div>
+          <div class="schedule-essay reveal"><div class="schedule-column"><span class="small-label">计划中的夜晚</span><p><time>22:00</time><span>调暗灯光</span></p><p><time>23:00</time><span>放下手机</span></p><p><time>23:30</time><span>按时入睡</span></p><small>静态计划的示意</small></div><div class="life-column"><span class="small-label">实际发生的生活</span><p>一场还没结束的谈话。<br />一个刚刚出现的想法。<br />一个与昨天不同的自己。</p><span class="margin-note">计划需要容纳这些变化。</span></div></div>
+          <blockquote class="article-pull reveal"><p>“你在强迫一个动态的、混乱的、<br />情绪化的人去符合静态的指令。”</p><footer><cite>李程浩 ·《规则的死亡》</cite><button type="button" class="text-button" id="openEssay">阅读文章节选 ↗</button></footer></blockquote>
+          <div class="prose reveal"><p>产品问题逐渐变得具体：当身体状态和现实安排变化时，系统能否帮我重新判断今天怎么过？这成为 Human OS 的起点。</p></div>
+        </section>
+
+        <section class="chapter" id="principle" aria-labelledby="principleTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">02 / 从固定时间，到当下判断</p><h2 id="principleTitle">规则是路径，<br />原则是导航。</h2></div>
+          <div class="prose reveal"><p>“晚上十点调暗灯光”规定了一条路径。“创造让自己在睡前平静下来的条件”则保留了目的，也给变化留下空间。我希望 AI 能在同一个长期意图下，根据眼前的情境重新寻找方法。</p></div>
+          <div class="principle-comparison reveal"><div><span class="small-label">固定的路径</span><h3>时间到了，<br />执行同一条指令。</h3><p>情境改变，仍然沿用昨天的安排。</p></div><div><span class="small-label">稳定的原则</span><h3>情境变了，<br />重新判断下一步。</h3><p>保留目标，允许时间和方法调整。</p></div></div>
+          <figure class="context-map reveal" aria-label="身体数据、主观感受和当天安排共同进入当前判断"><div class="context-inputs"><div><span>BODY</span><h3>身体数据</h3><p>HealthKit 中可读取的记录</p></div><div><span>FEELING</span><h3>主观感受</h3><p>用户此刻的自然语言描述</p></div><div><span>LIFE</span><h3>生活上下文</h3><p>对话中提到的安排与记忆</p></div></div><div class="context-connector" aria-hidden="true"><span></span><span></span><span></span></div><div class="context-result"><span>汇入当前判断</span><p>回复 · 调用工具 · 等待 · 暂不行动</p></div><figcaption>产品运行模型示意。健康数据按需读取，生活安排来自对话，不代表已接入日历。</figcaption></figure>
+        </section>
+
+        <section class="chapter" id="evolution" aria-labelledby="evolutionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">03 / 一边使用，一边推翻自己</p><h2 id="evolutionTitle">把手动习惯做进 App，<br />再重新思考它的内核。</h2></div>
+          <div class="prose reveal"><p>手动使用时，我真正重复做的是：发身体数据、说今天发生了什么、讨论下一步，再留下记录。早期资料复盘里，自由的“诊断与建议”被使用了约十次，固定清单和预设协议几乎没有被使用。</p><p>于是，第一步收敛为一句话：把现在手动做的事去掉手动。随着 iOS 原型逐渐完整，新的矛盾又出现了：如果每一步仍由脚本安排，模型的判断空间究竟在哪里？</p></div>
+          <ol class="generation-list reveal"><li><span class="generation-number">01</span><div><p class="small-label">手动 Human OS</p><h3>先找到会被反复使用的行为。</h3><p>截图 + 自然对话 + 日志。保留有效的复盘习惯，收起没有持续使用的清单。</p><span class="generation-conclusion">得到：真实使用方式</span></div></li><li><span class="generation-number">02</span><div><p class="small-label">iOS 产品原型</p><h3>把身体数据、对话和记忆连起来。</h3><p>接入 HealthKit，尝试晨间对话、Daily Digest 与 Obsidian 记忆；逐渐发现固定工作流与硬编码规则过重。</p><span class="generation-conclusion">暴露：流程替模型作了太多决定</span></div></li><li><span class="generation-number">03</span><div><p class="small-label">具身操作 · 当前技术 MVP</p><h3>事件负责唤醒，Agent 决定下一步。</h3><p>重建通用执行内核，把健康、提醒、记忆做成能力包；补齐授权、回读、执行记录和恢复。</p><span class="generation-conclusion">验证：自主判断需要可靠的执行边界</span></div></li></ol>
+          <figure class="archive-figure reveal"><img src="assets/health/human-os-early.png" width="1280" height="640" loading="lazy" alt="Human OS 早期公开展示设计，包含 Morning Boot、今日模式和晨间对话概念" /><figcaption><span>设计档案 / 2026.07</span><span>Human OS 早期公开展示图，非当前 App 截图。</span></figcaption></figure>
+          <figure class="product-evidence reveal">
+            <div class="evidence-stage"><button class="screenshot-trigger evidence-phone" type="button" data-screenshot="assets/health/daily-log-demo.png" aria-label="放大查看当前 App 的 Daily Log 演示截图"><img src="assets/health/daily-log-demo.png" width="1206" height="2622" alt="当前 App 的 Daily Log 演示界面：按日期排列公开 Episode，展示睡眠数据更新、训练咨询与当日时间线，页面内容注明是虚构演示" /><span class="screenshot-enlarge" aria-hidden="true">查看原图 ↗</span></button><div class="evidence-stage-copy"><span>03 / CURRENT APP</span><h3>把一天的判断，<br />留在同一条时间线上。</h3><p>Daily Log 按日期回看公开 Episode、用户提问与 Agent 的回复。这张图使用虚构演示内容，展示的是产品结构。</p></div></div>
+            <figcaption>当前 App · Daily Log 演示数据。它展示日期视图，不等于已经验证长期记忆效果。</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="boundaries" aria-labelledby="boundariesTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">04 / 从文章走向产品</p><h2 id="boundariesTitle">给判断留出空间，<br />为行动建立边界。</h2></div>
+          <div class="prose reveal"><p>《规则的死亡》表达了我希望系统适应人的方向。真正开发时，我还需要回答另一半问题：当路径由模型选择，怎样确保它读到了真实数据，又怎样避免它未经确认就改变现实？</p></div>
+          <div class="boundary-statement reveal"><div><span>对生活</span><p>原则引导<br />情境中的判断。</p></div><div><span>对系统</span><p>约束保护<br />现实中的行动。</p></div></div>
+          <div class="decision-notes reveal"><div><span class="note-index">A</span><div><h3>先取到证据，再回复。</h3><p>健康问题需要按需调用工具，把时间范围、单位与真实结果送回模型。缺少数据时说明缺失，不能把它当成零。</p><small>一次早期运行中，模型收到“不支持该指标”的反馈后，查询能力目录，改用了可用数据。</small></div></div><div><span class="note-index">B</span><div><h3>数据变了，可以先保持沉默。</h3><p>HealthKit 连续回调曾触发多轮运行。后来加入事件合并，也把内部数据更新与用户可见消息分开。</p><small>等待和暂不行动是合法结果；每次事件不必都变成一条建议。</small></div></div><div><span class="note-index">C</span><div><h3>工具提出动作，用户保留决定权。</h3><p>创建提醒需要先展示待批准请求。通过确认后再执行，并读取系统中的实际结果，随后才告诉用户完成。</p><small>同一请求要有执行记录，应用重启后也不能随意重做。</small></div></div></div>
+        </section>
+
+        <section class="chapter" id="action" aria-labelledby="actionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">05 / 让一个动作经得起检查</p><h2 id="actionTitle">“明早九点，<br />提醒我做一次复盘。”</h2></div>
+          <div class="prose reveal"><p>这句话很简单，却会在手机里产生一个真实记录。我把“建议执行”“用户批准”“写入成功”和“结果已验证”分成不同状态，避免把模型的一句回答当成任务完成。</p></div>
+          <figure class="product-evidence approval-evidence reveal"><div class="evidence-stage"><button class="screenshot-trigger evidence-phone" type="button" data-screenshot="assets/health/approval-demo.png" aria-label="放大查看当前 App 的待批准提醒演示截图"><img src="assets/health/approval-demo.png" width="1206" height="2622" alt="当前 App 的提醒授权演示界面：用户要求晚上 22:30 提醒关机，Agent 显示待确认的标题和时间，提供拒绝与批准并执行按钮；页面标注使用合成数据" /><span class="screenshot-enlarge" aria-hidden="true">查看原图 ↗</span></button><div class="evidence-stage-copy"><span>05 / APPROVAL</span><h3>先展示将要做什么，<br />再让用户决定。</h3><p>待批准状态会列出提醒标题和时间。画面停在授权之前；下方交互可以体验批准、拒绝与恢复这三条路径。</p></div></div><figcaption>当前 App · 待批准状态 · 演示数据。这张截图没有展示执行成功，真实链路验收见下方说明。</figcaption></figure>
+          <div class="action-demo reveal" id="actionDemo" data-phase="pending">
+            <div class="demo-topbar"><div><span class="small-label">交互复原 / 合成内容</span><p>一次提醒，三条路径。</p></div><button id="resetDemo" class="demo-reset" type="button">重新开始 ↺</button></div>
+            <div class="action-demo-grid">
+              <div class="demo-conversation"><div class="demo-user">明天上午九点，提醒我做一次状态复盘。</div><p class="agent-preamble">我准备创建这条提醒，请你确认。</p><div class="approval-card" id="approvalCard"><div class="approval-card-head"><span id="approvalStatus">等待确认</span><span>APPLE 提醒事项</span></div><h3>状态复盘</h3><p class="reminder-time">明天 · 09:00</p><p class="approval-description">批准后，将写入系统提醒事项。</p><div class="approval-controls"><button type="button" id="approveAction">批准并执行</button><button type="button" id="rejectAction">拒绝</button></div></div><div class="demo-result" id="demoResult" hidden><span id="resultLabel"></span><p id="resultCopy"></p></div><button type="button" class="restart-action" id="restartDemo">模拟应用重启 <span aria-hidden="true">↻</span></button><p class="restart-status" id="restartStatus" role="status"></p></div>
+              <div class="execution-panel"><div class="execution-heading"><span>执行记录</span><span class="episode-label">同一请求 / 01</span></div><ol class="execution-steps"><li data-step="proposal" class="is-complete"><span class="step-dot"></span><div><h4>提出动作</h4><p>准备创建提醒的标题与时间</p></div></li><li data-step="approval" class="is-current"><span class="step-dot"></span><div><h4>用户确认</h4><p id="approvalTrace">暂停，尚未写入系统</p></div></li><li data-step="execution"><span class="step-dot"></span><div><h4>执行一次</h4><p>沿用同一请求的执行记录</p></div></li><li data-step="readback"><span class="step-dot"></span><div><h4>回读结果</h4><p>核对实际标题与时间</p></div></li><li data-step="reply"><span class="step-dot"></span><div><h4>回复完成</h4><p>依据工具返回的结果作答</p></div></li></ol><div class="write-counter"><span>本次演示新增提醒</span><strong id="writeCount">0</strong></div><p class="execution-note" id="executionNote">批准前不执行。可以先模拟重启，观察请求如何保留。</p></div>
+            </div>
+            <p class="demo-disclaimer">这是页面内的状态演示，不连接模型、HealthKit 或你的提醒事项。模拟重启用于解释恢复逻辑。</p>
+            <p class="sr-only" id="demoAnnouncement" role="status" aria-atomic="true"></p>
+          </div>
+          <div class="acceptance-note reveal"><span class="small-label">对应的真实验收 / 2026.07.25</span><p>iPhone 15 Pro 上已验证：拒绝不执行；批准后恢复原请求；回读标题与时间一致；对应执行记录只有一条成功结果；待批准状态在重新安装或重启测试后仍可继续。</p></div>
+          <details class="technical-detail"><summary>展开：这些状态在工程里怎样连接 <span aria-hidden="true">＋</span></summary><p>模型提出工具调用 → 参数校验 → 权限检查 → 保存待确认请求 → 用户决定 → 持久化幂等记录 → EventKit 执行 → 回读验证 → 记录结果 → 返回模型。</p><p>进程中断时保存 checkpoint；恢复时沿用原 episode。幂等与不确定状态处理用于降低重复执行风险，不承诺所有故障下“恰好一次”。</p></details>
+        </section>
+
+        <section class="chapter reflection" id="reflection" aria-labelledby="reflectionTitle">
+          <div class="chapter-heading reveal"><p class="eyebrow">06 / 在 Codex 中，把判断变成可检查的实现</p><h2 id="reflectionTitle">每一轮开发，<br />都回到一个验证问题。</h2></div>
+          <div class="prose reveal"><p>整个项目主要在 Codex 中推进：从产品讨论、范围收缩和架构重构，到代码、测试与文档整理。我负责定义问题、确定边界、设计失败场景，并在 iPhone 上确认实际表现。</p><p>7 月 24—27 日是当前内核的核心开发阶段，之后继续补充 Today 体验、测试与开源整理。时间虽短，我优先验证了三件事：能否读到真实数据、能否安全执行动作、能否在中断后继续。</p></div>
+          <ol class="build-loop reveal"><li><span>01</span><h3>定义问题</h3><p>从真实使用记录收缩范围</p></li><li><span>02</span><h3>拆分实现</h3><p>在 Codex 中完成纵向切片</p></li><li><span>03</span><h3>制造失败</h3><p>拒绝、缺失、中断与重复</p></li><li><span>04</span><h3>真机复核</h3><p>读取系统中的实际结果</p></li></ol>
+          <div class="evidence-board reveal"><dl><div><dt>确定性测试</dt><dd>277<span>项</span></dd></div><div><dt>测试套件</dt><dd>39<span>组</span></dd></div><div><dt>关键链路验收</dt><dd class="device-name">iPhone<br />15 Pro</dd></div></dl><p>测试数量来自当前仓库 README；真机结论来自 7 月 25 日验收记录。确定性测试验证执行框架，模型在真实情境中的选择还需要持续评估。</p></div>
+          <div class="outcome-columns reveal"><div><span class="small-label">已经验证</span><h3>一个能运行、<br />能检查的技术 MVP。</h3><ul><li>基于真机 HealthKit 数据回答</li><li>提醒的批准、拒绝与结果回读</li><li>待确认请求的保留与恢复</li></ul></div><div><span class="small-label">继续要做</span><h3>从关键链路，<br />走向长期使用。</h3><ul><li>观察 iOS 后台真实唤醒的稳定性</li><li>建立固定的线上模型回归评估</li><li>积累实际自用反馈与使用证据</li></ul></div></div>
+          <p class="figure-note">当前为个人探索项目，尚未上架，也没有外部用户规模或健康改善的验证数据。</p>
+          <blockquote class="closing-quote reveal">让人的生活有弹性，<br />让系统的行动<em>有依据。</em></blockquote>
+          <div class="closing-actions"><a class="external-link" href="#action">再试一次提醒交互 <span aria-hidden="true">↑</span></a><a href="index.html#health">返回画中场景 <span aria-hidden="true">→</span></a></div>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="case-footer"><span>李程浩 · 产品作品集</span><a href="#top">回到开头 ↑</a><span>01 / 具身操作</span></footer>
+  <dialog class="screenshot-dialog" id="screenshotDialog" aria-labelledby="screenshotDialogTitle"><div class="screenshot-dialog-bar"><p id="screenshotDialogTitle">产品界面 · 演示数据</p><button type="button" id="closeScreenshot" autofocus>关闭 ×</button></div><div class="screenshot-dialog-body"><img id="expandedScreenshot" alt="" /></div><p class="screenshot-dialog-caption" id="screenshotDialogCaption"></p></dialog>
+  <dialog class="essay-dialog" id="essayDialog" aria-labelledby="essayTitle"><div class="essay-toolbar"><span>作者文章 / 节选</span><button type="button" id="closeEssay" autofocus>关闭 ×</button></div><div class="essay-content"><p class="eyebrow">李程浩 · 产品思考</p><h2 id="essayTitle">规则的死亡</h2><p class="essay-subtitle">AI 系统意味着活在 flow 中，而非遵循脚本运行</p><p>我一直在用 AI 来修复我的睡眠。</p><p>因为和大多数人一样，我清楚知道自己应该做什么。我就是做不到。</p><p>于是我开始建立规则。硬性规则。晚上 10 点，调暗灯光。11 点，放下手机。关闭通知。全套算法紧身衣。</p><p>有效了三天。</p><p>然后生活发生了。一顿迟来的晚餐。一场重要的对话。午夜时分的创意爆发。突然间，我精心设计的系统不再是指导，而变成了愧疚的来源。</p><h3>规则是路径。原则是导航。</h3><p>规则说：“晚上 10 点调暗灯光。”</p><p>原则说：“创造让我的大脑在睡前平静下来的条件。”</p><p>一个是命令。另一个是指南针。</p><p>当你遵循规则时，你在走一条预定的路径。在地形改变之前，它完美运作。然后你就卡住了。</p><p>当你遵循原则时，你在朝着一个结果导航。路径会调整。方法会进化。目的地保持不变。</p><h3>生命是波浪。你的系统应该是水。</h3><p>你的能量在波动。你的情境在变化。你的优先级在转移。</p><p>然而我们构建的系统却假设明天会和今天一模一样。</p><p>目标不是遵循脚本。目标是与你真正重视的东西保持对齐。</p><p class="essay-source">以上为作者原文选段，省略部分段落并整理标点。文中表达产品理念，不代表当前 App 已实现全部设想。</p></div></dialog>
+</body>
+</html>
