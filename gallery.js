@@ -20,23 +20,25 @@
     w: parseFloat(el.style.width), h: parseFloat(el.style.height)
   }]));
   rects.about = { x: 0, y: 0, w: 100, h: 100 };
-  const branches = {
+  const travelBranches = {
     research: {
       meta: '团队毕业论文 · 2026.06—2026.09',
-      role: '理论框架 / 原型设计 / 项目协调', status: '完成论文与研究展示',
-      description: '组织五人团队，用同一旅行平台的三版交互原型，研究消费者如何理解 AI 集成。推动选题收敛、理论框架与访谈设计，并协调各部分形成共同论证。',
-      proof: '5 人团队 · 3 版交互原型 · 15 位受访者'
+      role: '理论框架 / 原型设计 / 项目协调', status: '研究与论文展示',
+      description: '组织五人团队，用同一旅行平台的三版交互原型，研究消费者如何理解不同程度的 AI 集成。我参与理论框架、原型设计与项目协调，让研究问题和交付材料保持一致。',
+      proof: '5 人团队 · 3 版交互原型 · 15 位受访者',
+      href: 'research.html'
     },
     internship: {
       meta: '天津凌志皓越科技 · 产品经理实习 · 2023.01—2023.04',
-      role: '产品原型 / 市场分析 / 新业务开拓', status: '实习经历',
-      description: '两条并行的工作线：一条是无人机集群操作界面原型、竞品与潜在用户分析；另一条是调研存量客户需求，尝试开拓机票销售业务。它们是同一段实习里的不同任务，并非同一个项目。',
-      proof: '机票新业务首周从 0 到 10 单'
+      role: '产品原型 / 市场分析 / 订单履约', status: '实习经历',
+      description: '参与无人机集群操作界面原型与市场分析；在机票服务中承接领导提供的订单，负责下单出票，并把流程整理成 SOP、知识库和问答机器人，供后续同事学习。',
+      proof: '首周 10 笔已出票订单 · 出票 SOP / 知识库 / 问答机器人',
+      href: 'internship.html'
     }
   };
   let phase = 'overview';
   let active = null;
-  let branch = null;
+  let travelBranch = 'research';
   let returnFocus = null;
   let timeline = null;
   let clone = null;
@@ -139,9 +141,25 @@
       $(`panel${field[0].toUpperCase()}${field.slice(1)}`).textContent = data[field];
     }
   }
+  function selectTravelBranch(key, animate = false) {
+    travelBranch = key;
+    const data = travelBranches[key];
+    renderDetails(data);
+    document.querySelectorAll('[data-travel]').forEach(button => {
+      const selected = button.dataset.travel === key;
+      button.setAttribute('aria-selected', String(selected));
+      button.tabIndex = selected ? 0 : -1;
+    });
+    $('panelMain').setAttribute('aria-labelledby', key === 'research' ? 'researchTab' : 'internshipTab');
+    $('projectStoryLink').hidden = false;
+    $('projectStoryLink').href = data.href;
+    $('projectStoryLink').innerHTML = '查看详情 <span aria-hidden="true">→</span>';
+    if (animate && !reducedMotion.matches && window.gsap) {
+      gsap.fromTo([$('panelDescription'), $('projectStoryLink'), $('panelProof')], { opacity: .35, y: 5 }, { opacity: 1, y: 0, duration: .22, overwrite: true });
+    }
+  }
   function render(key) {
     active = key;
-    branch = null;
     const data = projects[key];
     $('panelKicker').textContent = data.order;
     $('panelTitle').textContent = data.title;
@@ -151,12 +169,20 @@
     $('visualSummary').textContent = data.hoverSummary;
     $('detailCount').textContent = `${String(order.indexOf(key) + 1).padStart(2, '0')} / 05`;
     $('travelEntries').hidden = key !== 'travel';
-    const storyPages = { health: 'health.html', sanfen: 'sanfen.html', aoma: 'aoma.html', collection: 'collection.html', travel: 'research.html' };
-    $('projectStoryLink').hidden = !storyPages[key];
-    $('projectStoryLink').setAttribute('href', storyPages[key] || '#');
-    $('projectStoryLink').innerHTML = key === 'travel' ? '查看团队研究项目 <span aria-hidden="true">→</span>' : '阅读完整项目故事 <span aria-hidden="true">→</span>';
-    $('researchArticleLink').hidden = key !== 'travel';
-    document.querySelectorAll('[data-travel]').forEach(button => button.setAttribute('aria-pressed', 'false'));
+    panel.classList.toggle('is-travel', key === 'travel');
+    if (key === 'travel') {
+      $('panelMain').setAttribute('role', 'tabpanel');
+      selectTravelBranch('research');
+    } else {
+      $('panelMain').removeAttribute('role');
+      $('panelMain').removeAttribute('aria-labelledby');
+    }
+    const storyPages = { health: 'health.html', sanfen: 'sanfen.html', aoma: 'aoma.html', collection: 'collection.html' };
+    if (key !== 'travel') {
+      $('projectStoryLink').hidden = !storyPages[key];
+      $('projectStoryLink').setAttribute('href', storyPages[key] || '#');
+      $('projectStoryLink').innerHTML = '阅读完整项目故事 <span aria-hidden="true">→</span>';
+    }
     panel.classList.toggle('is-about', key === 'about');
     crop.setAttribute('aria-label', key === 'about' ? '产品作品集群像全景' : `${data.hoverTitle || data.title}的画中场景`);
     paintCrop(crop, key);
@@ -288,19 +314,19 @@
   closeButton.addEventListener('click', requestClose);
   $('prevScene').addEventListener('click', () => next(-1));
   $('nextScene').addEventListener('click', () => next(1));
-  document.querySelectorAll('[data-travel]').forEach(button => button.addEventListener('click', () => {
-    if (phase !== 'detail' || active !== 'travel') return;
-    branch = branch === button.dataset.travel ? null : button.dataset.travel;
-    document.querySelectorAll('[data-travel]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.travel === branch)));
-    renderDetails(branch ? branches[branch] : projects.travel);
-    $('projectStoryLink').hidden = false;
-    $('projectStoryLink').setAttribute('href', branch === 'internship' ? 'internship.html' : 'research.html');
-    $('projectStoryLink').innerHTML = branch === 'internship' ? '查看实习经历 <span aria-hidden="true">→</span>' : '查看团队研究项目 <span aria-hidden="true">→</span>';
-    $('researchArticleLink').hidden = branch === 'internship';
-    if (!reducedMotion.matches && window.gsap) {
-      gsap.fromTo([$('panelDescription'), $('panelProof')], { opacity: .35, y: 4 }, { opacity: 1, y: 0, duration: .22, overwrite: true });
-    }
-  }));
+  document.querySelectorAll('[data-travel]').forEach(button => {
+    button.addEventListener('click', () => {
+      if (phase === 'detail' && active === 'travel') selectTravelBranch(button.dataset.travel, true);
+    });
+    button.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault(); event.stopPropagation();
+      const key = event.key === 'Home' ? 'research' : event.key === 'End' ? 'internship'
+        : travelBranch === 'research' ? 'internship' : 'research';
+      const target = document.querySelector(`[data-travel="${key}"]`);
+      target?.focus(); selectTravelBranch(key, true);
+    });
+  });
   window.addEventListener('popstate', () => routeTo(routeFromHash()));
   window.addEventListener('hashchange', () => routeTo(routeFromHash()));
   document.addEventListener('keydown', event => {

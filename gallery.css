@@ -69,13 +69,15 @@ kbd { margin-left: 8px; border: 1px solid #74766640; border-radius: 3px; padding
 .panel-kicker { margin: 0 0 18px; color: #8c7140; font-size: 12px; line-height: 1.6; letter-spacing: .14em; }
 .project-panel h2 { margin: 0; font: 400 clamp(36px,4.2vw,68px)/1.15 "Songti SC", "Iowan Old Style", serif; letter-spacing: -.03em; text-wrap: balance; }
 .panel-meta { margin: 16px 0 0; color: #686b5f; font-size: 14px; line-height: 1.7; text-wrap: pretty; }
+.panel-main { display: flex; flex-direction: column; min-width: 0; }
 .travel-entries { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
 .travel-entries[hidden] { display: none; }
-.travel-entries button { border: 1px solid #28302633; background: transparent; padding: 12px 14px; color: #454c40; text-align: left; transition: background 180ms, border-color 180ms; }
+.travel-entries button { display: block; border: 1px solid #28302633; background: transparent; padding: 13px 15px; color: #454c40; text-align: left; transition: background 180ms, border-color 180ms; }
 .travel-entries button:hover { background: #e6e3d9; }
-.travel-entries button[aria-pressed="true"] { border-color: #7e714d; background: #e2dfd2; }
+.travel-entries button[aria-selected="true"] { border-color: #9a7849; background: #e5ddcc; box-shadow: inset 0 -2px #9a7849; }
+.travel-entries button:focus-visible { outline: 2px solid #6e5b36; outline-offset: 3px; }
 .travel-entries small { display: block; color: #7e795f; font: 10px/1.5 ui-monospace,monospace; letter-spacing: .05em; }
-.travel-entries span { display: flex; justify-content: space-between; margin-top: 6px; font-size: 15px; }
+.travel-entries span { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; font-size: 15px; }
 .travel-entries b { font-weight: 400; }
 .panel-facts { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; margin: 26px 0 0; }
 .panel-facts div { border-top: 1px solid #28302626; padding-top: 13px; }
@@ -83,13 +85,18 @@ kbd { margin-left: 8px; border: 1px solid #74766640; border-radius: 3px; padding
 .panel-facts dd { margin: 0; font-size: 14px; line-height: 1.6; }
 .panel-rule { width: 32px; height: 1px; background: #a58e5c; margin: 26px 0; }
 .panel-description { margin: 0; font-size: 16px; color: #50554d; line-height: 1.95; text-wrap: pretty; }
-.panel-proof { margin-top: 27px; border-top: 1px solid #28302626; padding-top: 17px; }
+.panel-proof { order: 1; margin-top: 27px; border-top: 1px solid #28302626; padding-top: 17px; }
 .panel-proof small { display: block; margin-bottom: 9px; color: #676c61; font-size: 12px; }
 .panel-proof strong { font: 400 17px/1.75 "Songti SC", "Iowan Old Style", serif; }
-.project-story-link { display: inline-flex; align-self: flex-start; align-items: center; gap: 24px; margin-top: 20px; min-height: 44px; padding: 8px 0; border-bottom: 1px solid #8c714070; color: #66552f; font-size: 14px; }
+.project-story-link { order: 2; display: inline-flex; align-self: flex-start; align-items: center; gap: 24px; margin-top: 20px; min-height: 44px; padding: 8px 0; border-bottom: 1px solid #8c714070; color: #66552f; font-size: 14px; }
 .project-story-link[hidden] { display: none; }
 .project-story-link span { transition: transform 200ms; }
 .project-story-link:hover span { transform: translateX(5px); }
+.project-panel.is-travel .panel-proof { order: 2; margin-top: 22px; }
+.project-panel.is-travel .project-story-link { order: 1; align-self: stretch; justify-content: space-between; margin-top: 22px; padding: 13px 18px; min-height: 50px; border: 1px solid #2b3b35; background: #2b3b35; color: #f4f0e7; font-size: 15px; }
+.project-panel.is-travel .project-story-link:hover { background: #405248; }
+.project-panel.is-travel .panel-rule { margin: 20px 0; }
+.project-panel.is-travel .panel-description { font-size: 15px; line-height: 1.8; }
 .detail-nav { display: flex; justify-content: space-between; align-items: center; position: absolute; left: clamp(28px,4.2vw,72px); right: clamp(28px,4.2vw,72px); bottom: 22px; }
 .detail-nav button { width: 42px; height: 38px; background: transparent; border: 1px solid #5d615029; color: #626858; font-size: 18px; transition: background 180ms; }
 .detail-nav button:hover { background: #dad8cd; }
@@ -133,6 +140,9 @@ kbd { margin-left: 8px; border: 1px solid #74766640; border-radius: 3px; padding
   .detail-nav { left: 26px; right: 26px; bottom: 20px; }
   .project-panel h2 { font-size: 40px; }
   .project-crop { max-width: 100%; }
+  .travel-entries { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .travel-entries button { padding: 12px; }
+  .travel-entries span { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
