@@ -35,20 +35,30 @@ button:disabled { cursor: default; opacity: .35; }
 .zoom-lens { position: absolute; inset: 0; pointer-events: none; opacity: 0; background-image: url("assets/portfolio-hero.png"); background-repeat: no-repeat; box-shadow: 0 25px 42px #05080680, 0 5px 12px #05080666, 0 0 0 1px #e8d8acb3; transform: translateY(0) scale(1); transition: transform 380ms var(--ease), opacity 160ms; }
 .is-hovered .zoom-lens { opacity: 1; transform: translateY(-7px) scale(1.065); }
 .hotspot:active .zoom-lens { transform: translateY(-3px) scale(1.025); transition-duration: 100ms; }
-.hotspot-label { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 6px 7px; background: #151b19b8; font: 12px ui-monospace, monospace; color: var(--gold); opacity: 0; pointer-events: none; transition: opacity 220ms; }
-.is-hovered .hotspot-label { opacity: 1; }
-.hotspot-label b { font-weight: 400; }
+.hotspot-label { position: absolute; z-index: 2; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: 12px; min-height: 32px; padding: 5px 9px; border: 1px solid #e8d8ac9c; background: #151b19d9; box-shadow: 0 4px 14px #080d0a66; font: 12px ui-monospace, monospace; color: #f1d795; pointer-events: none; transition: color 220ms, background 220ms, border-color 220ms, transform 220ms var(--ease); animation: marker-enter 600ms var(--ease) backwards; }
+.hotspot:nth-of-type(2) .hotspot-label { animation-delay: 120ms; }
+.hotspot:nth-of-type(3) .hotspot-label { animation-delay: 240ms; }
+.hotspot:nth-of-type(4) .hotspot-label { animation-delay: 360ms; }
+.hotspot:nth-of-type(5) .hotspot-label { animation-delay: 480ms; }
+.is-hovered .hotspot-label, .hotspot:focus-visible .hotspot-label { color: #181d1a; background: #ead39f; border-color: #ead39f; transform: translateY(-2px); }
+.hotspot-label b { font-weight: 500; }
+.hotspot-label span { font-size: 14px; line-height: 1; }
+@keyframes marker-enter { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 .hover-note { position: absolute; z-index: 5; width: 258px; max-width: 70vw; padding: 16px 18px; color: var(--ink); background: #151b19f5; border: 1px solid #d6bd824d; box-shadow: 0 14px 28px #090f0a55; text-align: left; pointer-events: none; opacity: 0; transform: translateY(6px); transition: opacity 180ms, transform 240ms var(--ease); }
 .hover-note small, .hover-note strong, .hover-note span { display: block; }
 .hover-note small { font-size: 12px; color: var(--gold); letter-spacing: .06em; }
 .hover-note strong { margin-top: 8px; font: 400 23px/1.2 "Songti SC", "Iowan Old Style", serif; }
 .hover-note span { margin-top: 10px; font-size: 14px; line-height: 1.7; color: #c5c4ba; }
 .is-hovered .hover-note { opacity: 1; transform: translateY(0); transition-delay: 100ms; }
-.gallery-footer { position: absolute; bottom: 15px; left: 32px; right: 32px; display: flex; align-items: center; gap: 24px; min-height: 35px; font-size: 12px; color: var(--muted); }
-.stage-note { margin: 0; flex: 1; font-size: 13px; }
-.scene-index { display: flex; gap: 8px; }
-.scene-index button { min-width: 38px; min-height: 36px; padding: 4px; border: 0; border-bottom: 1px solid transparent; color: #999d94; background: transparent; font: 12px ui-monospace, monospace; transition: color 180ms, border-color 180ms; }
-.scene-index button:hover, .scene-index button.active { color: var(--gold); border-color: var(--gold); }
+.gallery-footer { position: absolute; bottom: 12px; left: 32px; right: 32px; display: flex; align-items: center; gap: 24px; min-height: 48px; font-size: 12px; color: var(--muted); }
+.stage-intro { flex: 1; min-width: 240px; }
+.stage-intro > span { display: block; color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+.stage-note { margin: 3px 0 0; color: #d0cec3; font-size: 13px; }
+.scene-index { display: flex; align-items: center; gap: 4px; }
+.scene-index button { display: inline-flex; align-items: baseline; gap: 6px; min-height: 36px; padding: 8px 9px 6px; border: 0; border-bottom: 1px solid transparent; color: #c2c1b7; background: transparent; font-size: 12px; white-space: nowrap; transition: color 180ms, border-color 180ms, background 180ms; }
+.scene-index button span { color: #979b90; font: 11px ui-monospace, monospace; transition: color 180ms; }
+.scene-index button:hover, .scene-index button.active, .scene-index button:focus-visible { color: var(--gold); border-color: var(--gold); background: #d6bd8210; }
+.scene-index button:hover span, .scene-index button.active span, .scene-index button:focus-visible span { color: var(--gold); }
 .gallery-count { flex: 1; text-align: right; letter-spacing: .08em; }
 .mobile-gallery { display: none; }
 .project-panel { position: fixed; z-index: 40; inset: 0; display: grid; grid-template-columns: minmax(0,1.16fr) minmax(380px,.84fr); background: #171b1a; visibility: hidden; opacity: 0; pointer-events: none; overflow: auto; }
@@ -115,6 +125,8 @@ kbd { margin-left: 8px; border: 1px solid #74766640; border-radius: 3px; padding
 @media (max-width: 1100px) {
   .gallery-count { display: none; }
   .brand span { font-size: 11px; }
+  .gallery-footer { gap: 12px; left: 24px; right: 24px; }
+  .scene-index button { padding-inline: 5px; }
 }
 @media (max-width: 820px) {
   .site-header { padding: 18px 20px; }
