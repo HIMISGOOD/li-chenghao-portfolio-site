@@ -10,6 +10,7 @@
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 820px)');
   const order = ['health', 'sanfen', 'travel', 'aoma', 'collection'];
+  const indexNames = { health: '健康 Agent', sanfen: '三分熟', travel: '旅行与机票', aoma: 'AOMA', collection: '物影集' };
   const hotspots = [...document.querySelectorAll('.hotspot')];
   const background = [...document.querySelectorAll('.site-header, .desktop-stage, .mobile-gallery')];
   const copyParts = [...panel.querySelectorAll('.panel-kicker, h2, .panel-meta, .travel-entries, .panel-facts, .panel-rule, .panel-description, .panel-proof, .project-story-link')];
@@ -77,7 +78,7 @@
     painting.classList.toggle('exploring', Boolean(key));
     hotspots.forEach(el => el.classList.toggle('is-hovered', el.dataset.project === key));
     document.querySelectorAll('.scene-index button').forEach(el => el.classList.toggle('active', el.dataset.project === key));
-    $('stageNote').textContent = key ? `${projects[key].hoverTitle || projects[key].title} · 点击展开` : '将鼠标移入画中，发现一个项目';
+    $('stageNote').textContent = key ? `${projects[key].hoverTitle || projects[key].title} · 点击展开` : '移入预览 · 点击金色编号展开';
     if (!key) return;
     const el = sourceFor(key);
     const note = el?.querySelector('.hover-note');
@@ -109,7 +110,9 @@
     const indexButton = document.createElement('button');
     indexButton.type = 'button';
     indexButton.dataset.project = key;
-    indexButton.textContent = String(index + 1).padStart(2, '0');
+    const indexNumber = document.createElement('span');
+    indexNumber.textContent = String(index + 1).padStart(2, '0');
+    indexButton.append(indexNumber, document.createTextNode(indexNames[key]));
     indexButton.setAttribute('aria-label', `查看${projects[key].hoverTitle || projects[key].title}`);
     $('sceneIndex').append(indexButton);
   });
